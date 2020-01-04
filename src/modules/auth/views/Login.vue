@@ -1,9 +1,9 @@
 <template>
   <v-container fill-height >
     <v-layout justify-center align-center>
-      <v-flex>
+      <v-flex xs12 sm6 md4 lg13 x13>
         <v-card>
-          <v-toolbar color="primary">
+          <v-toolbar color="primary" dark>
             <v-toolbar-title>Login</v-toolbar-title>
           </v-toolbar>
           
@@ -13,18 +13,29 @@
                   prepend-icon="email"
                   name="email"
                   label="Email"
-                  type="email"></v-text-field>
+                  type="email"
+                  v-model.trim="$v.user.email.$model"
+                  ></v-text-field>
                 <v-text-field
                   prepend-icon="lock"
                   name="password"
                   label="Senha"
-                  type="password"></v-text-field>
+                  type="password"
+                  v-model.trim="$v.user.password.$model"
+                  ></v-text-field>
               </v-form>
-              <v-btn block prepend color="secondary">Criar Conta</v-btn>
+              <v-btn
+                block depressed color="secondary"
+              >Criar Conta</v-btn>
+
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="primary" large></v-btn>
+              <v-btn
+                color="primary" large
+                :disabled="$v.$invalid"
+                @click="submit"
+              >Login</v-btn>
             </v-card-actions>
         </v-card>
       </v-flex>
@@ -33,7 +44,34 @@
 </template>
 
 <script>
+
+import { required, email, minLength } from 'vuelidate/lib/validators'
+
 export default {
-  name: 'Login'
+  name: 'Login',
+  data: () => ({
+    user: {
+      email: '',
+      password: ''
+    }
+  }),
+  validations: {
+    user: {
+      email: {
+        required,
+        email
+      },
+      password: {
+        required,
+        minLength: minLength(6)
+      }
+    }
+  },
+  methods: {
+    submit () {
+      console.log(' data ', this.$v)
+      console.log(' user ', this.user)
+    }
+  }
 }
 </script>

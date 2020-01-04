@@ -28,3 +28,9 @@ npm i vue@^2
 
 Dependêncidas de desenvolvimento:
 npm i -D @vue/cli-plugin-babel@^3 @vue/cli-plugin-eslint@^3 @vue/cli-service@^3 eslint@^5 eslint-plugin-vue@^5 vue-template-compiler@^2
+
+Dependências:
+npm i vuetify@^1
+
+Dependências de desenvolvimento:
+npm i -D vuetify-loader@^1

@@ -1,4 +1,4 @@
-# finances-front
+# finances
 
 ## Project setup
 ```

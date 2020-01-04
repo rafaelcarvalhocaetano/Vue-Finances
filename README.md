@@ -1,4 +1,4 @@
-# finances
+# financial
 
 ## Project setup
 ```

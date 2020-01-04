@@ -1,2 +1,24 @@
-# MAC_FINC
-Sistema financeiro desenvolvido com todos os recursos do Vue. Como Vue-Router, Vuex, Vuetyfi, Vuelidate, ApolloClient via Apollo Boost fazendo integração com API GraphQL e Graficos com ChartJS
+# finances-front
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

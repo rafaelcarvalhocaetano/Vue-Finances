@@ -5,8 +5,15 @@
         <v-card>
           <v-toolbar color="primary" dark>
             <v-toolbar-title>{{ texts.toolbar }}</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-progress-circular
+            v-show="isLoader"
+            indeterminate
+            color="write"
+            width="2"
+            ></v-progress-circular>
           </v-toolbar>
-          
+
             <v-card-text>
               <v-form>
                 <v-text-field
@@ -67,6 +74,7 @@ export default {
   name: 'Login',
   data: () => ({
     isLogin: true,
+    isLoader: false,
     user: {
       name: '',
       email: '',
@@ -136,6 +144,10 @@ export default {
   },
   methods: {
     async submit () {
+      this.isLoader = true
+      setTimeout(() => {
+        this.isLoader = false
+      }, 4000)
       const authData = this.isLogin ? await AuthService.login(this.user) : await AuthService.signup(this.user)
       console.log('Auth ::: ', authData)
     }
